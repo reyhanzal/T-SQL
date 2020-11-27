@@ -1,0 +1,9 @@
+SELECT [1] AS 'DB_SOURCE', [2] AS 'DB_DESTINATION', [3] AS 'TABLE_SRC', [4] AS 'TABLE_DST'
+    FROM (
+		   SELECT *, ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) Row_Num
+		   FROM [dbo].[FnSplitString2]('LSS_RPTP_QA, RPTQ, PRODUCT_HTS, PRODUCT_HTS', ',')
+) A
+PIVOT
+(MIN(Item)
+FOR Row_Num IN ([1],[2],[3],[4]))
+AS B;
