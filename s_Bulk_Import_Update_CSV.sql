@@ -1,23 +1,13 @@
-USE [YOUR_DB_NAME]
-GO
-
-/****** Object:  StoredProcedure [dbo].[s_BulkCsvImport_Update] Script Date: 8/15/2019 11:12:46 AM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
+CREATE PROC [dbo].[s_InsightImport_Update] (@PathName VARCHAR(500))
+AS
 
 --=================================
 --Author      : M. Reyhan Zalbina
---Description : Bulk import CSV
+--Description : Bulk Import CSV
 --=================================
 
 --Simple Usage
 --EXEC [dbo].[s_InsightImport_Update] 'D:\IMPORT\PATH\SUBPATH\' 
-
-CREATE PROC [dbo].[s_InsightImport_Update] (@PathName VARCHAR(500))
-AS
 
 DECLARE  @sql NVARCHAR(MAX)
 		,@tablename VARCHAR(2000)
