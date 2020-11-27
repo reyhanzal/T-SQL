@@ -6,11 +6,10 @@ CREATE PROCEDURE [dbo].[usp_sys_CatchErrorInfo] (
 )
 AS
 BEGIN
---================================
---Author       : M. Reyhan Zalbina
---Created Date : 2020-02-17
---Description  : Log Error
---================================
+--=================================
+--Author      : M. Reyhan Zalbina
+--Description : Log Error
+--=================================
   SET NOCOUNT ON
 
   DECLARE @ME AS NVARCHAR(100)
@@ -73,8 +72,3 @@ BEGIN
 	
   RETURN 0
 END
-
-
-GO
-
-
