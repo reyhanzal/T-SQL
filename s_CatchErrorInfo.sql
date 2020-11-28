@@ -1,22 +1,24 @@
 CREATE PROCEDURE [dbo].[s_CatchErrorInfo] (
-    @DB_NAME NVARCHAR(100),
+        @DB_NAME NVARCHAR(100),
 	@LOGTABLE NVARCHAR(50), 
 	@COMPONENT NVARCHAR(50), 
 	@NARRATIVE NVARCHAR(1500) = ''
 )
 AS
 BEGIN
+
 --=================================
 --Author      : M. Reyhan Zalbina
 --Description : Log Error
 --=================================
+
   SET NOCOUNT ON
 
   DECLARE @ME AS NVARCHAR(100)
-	      ,@sql AS NVARCHAR(MAX)
-		  ,@LOGTYPE AS NVARCHAR(50)
-	      ,@ERR_CODE AS INT
-		  ,@ERR_MSG AS NVARCHAR(1500)
+	 ,@sql AS NVARCHAR(MAX)
+         ,@LOGTYPE AS NVARCHAR(50)
+         ,@ERR_CODE AS INT
+	 ,@ERR_MSG AS NVARCHAR(1500)
 
   DECLARE @crlf AS CHAR(2)
   DECLARE @rowcount AS INT
