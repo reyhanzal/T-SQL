@@ -1,7 +1,7 @@
 CREATE PROCEDURE [dbo].[s_BulkInsert_Txt] (
 	@tblname		AS NVARCHAR(150),
 	@importfilepath		AS NVARCHAR(150),
-	@companydb			AS NVARCHAR(100) 
+	@companydb              AS NVARCHAR(100) 
 )
 AS
 
