@@ -28,7 +28,7 @@ SET @ME = OBJECT_NAME(@@PROCID) + N' (0001.00) '
 SET @PARAMS = @TABLE_NAME + ', ' + @FILE_PATH + ', ' + @DB_NAME
 PRINT CONVERT(CHAR(24), GETDATE(),113) + N' ' + @ME + @PARAMS
   
-EXEC [dbo].[usp_sys_WriteImportLogEntry] @DB_NAME, @ME, @PARAMS, N'INIT', '', ''
+EXEC [dbo].[s_sys_WriteImportLogEntry] @DB_NAME, @ME, @PARAMS, N'INIT', '', ''
 
 SELECT @ERR_CODE = 0, @rowcount = 0
 
@@ -46,7 +46,7 @@ END TRY
 
 BEGIN CATCH
 SELECT @ERR_CODE = @@ERROR
-EXECUTE usp_sys_CatchErrorInfo @DB_NAME, N'ErrorLog', @ME, @sql
+EXECUTE s_sys_CatchErrorInfo @DB_NAME, N'ErrorLog', @ME, @sql
 SET @ERR_MSG='Excel insert statement failed.'
 PRINT CONVERT(CHAR(24), GETDATE(),113) + N' ' + @ME + @ERR_MSG + ' ' 
 	+ @sql + ' ' + Cast(@ERR_CODE AS VARCHAR(10)) + '.' + Error_Message() 
@@ -54,7 +54,7 @@ END CATCH
 
 SET @ROW = CAST(@rowcount AS VARCHAR(10))
 SET @INFO = N'Row(s) inserted ' + @ROW + ' ' + @TABLE_NAME
-EXEC usp_sys_WriteImportLogEntry @DB_NAME, @ME, @PARAMS, N'INFO', @INFO, ''
+EXEC s_sys_WriteImportLogEntry @DB_NAME, @ME, @PARAMS, N'INFO', @INFO, ''
   
 RETURN @ERR_CODE   
 END
