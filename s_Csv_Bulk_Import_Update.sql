@@ -1,4 +1,6 @@
-CREATE PROC [dbo].[s_Csv_Bulk_Import_Update] (@PathName VARCHAR(500))
+CREATE PROCEDURE [dbo].[s_Csv_Bulk_Import_Update] (
+		@PathName VARCHAR(500)
+)
 AS
 
 --=================================
@@ -56,7 +58,7 @@ CREATE TABLE #ListOfColumns (columnname NVARCHAR(2000) , Columnorder NVARCHAR(20
 
 BEGIN TRY
 SELECT @sql = N'SELECT @filename = max(YOUR_COLUMN_NAME) FROM BNK_HASH_TOTAL WHERE YOUR_COLUMN_NAME LIKE ''BNK_VERSION%'''
-EXEC sp_EXECuteSql @sql, N'@filename varchar (2000) output', @filename OUTPUT
+EXEC sp_ExecuteSql @sql, N'@filename varchar (2000) output', @filename OUTPUT
 			
 SET @sql = N'BULK INSERT #listOfColumns FROM ' + QUOTENAME( @PathName + '\' + @filename + '.txt', '''')  +
 						N' WITH ( FIRSTROW=1, FIELDTERMINATOR=' + QUOTENAME(CHAR(254), '''') + ',' +
