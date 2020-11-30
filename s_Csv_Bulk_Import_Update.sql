@@ -7,7 +7,7 @@ AS
 --=================================
 
 --Simple Usage
---EXEC [dbo].[s_InsightImport_Update] 'D:\IMPORT\PATH\SUBPATH\' 
+--EXEC [dbo].[s_Csv_Bulk_Import_Update] 'D:\IMPORT\PATH\SUBPATH\' 
 
 DECLARE  @sql NVARCHAR(MAX)
 		,@tablename VARCHAR(2000)
