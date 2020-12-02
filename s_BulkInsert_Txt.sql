@@ -1,7 +1,7 @@
 CREATE PROCEDURE [dbo].[s_BulkInsert_Txt] (
-	@tblname		AS NVARCHAR(150),
-	@importfilepath		AS NVARCHAR(150),
-	@companydb              AS NVARCHAR(100) 
+	@tblname           AS NVARCHAR(150),
+	@importfilepath    AS NVARCHAR(150),
+	@companydb  	   AS NVARCHAR(100) 
 )
 AS
 
@@ -14,15 +14,15 @@ BEGIN
 
 SET NOCOUNT ON
 
-DECLARE @me			AS NVARCHAR(100)
-DECLARE @myparms	AS NVARCHAR(500)
-DECLARE @myinfo		AS NVARCHAR(50)	
+DECLARE @me 	       AS NVARCHAR(100)
+DECLARE @myparms       AS NVARCHAR(500)
+DECLARE @myinfo        AS NVARCHAR(50)	
 
-DECLARE @bulkinsert	AS NVARCHAR(500)
-DECLARE @err_msg	AS NVARCHAR(50)
-DECLARE @err_code	AS INT
+DECLARE @bulkinsert    AS NVARCHAR(500)
+DECLARE @err_msg       AS NVARCHAR(50)
+DECLARE @err_code      AS INT
 	
-DECLARE @rowcount	AS	INT
+DECLARE @rowcount      AS INT
 	
 SET @me = OBJECT_NAME(@@PROCID) + N'(0001.01) '
 PRINT @me + @tblname + ', ' + @importfilepath + ', ' + @companydb
