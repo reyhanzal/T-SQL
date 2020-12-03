@@ -30,10 +30,10 @@ BEGIN
 		
   BEGIN TRY
 	SET @ERR_MSG = N' Error(' + Cast(Error_Number() AS VARCHAR(10)) + '): ' + Error_Message() + @crlf
-						+ N' Severity:  ' + Cast(Error_Severity() AS VARCHAR(10)) + @crlf
-						+ N' State:     ' + Cast(Error_State() AS VARCHAR(10)) + @crlf
-						+ N' Procedure: ' + IsNull(Error_Procedure(),N'None.') + @crlf
-						+ N' Line #:    ' + Cast(Error_Line() AS VARCHAR(10))
+		     + N' Severity:  ' + Cast(Error_Severity() AS VARCHAR(10)) + @crlf
+		     + N' State:     ' + Cast(Error_State() AS VARCHAR(10)) + @crlf
+		     + N' Procedure: ' + IsNull(Error_Procedure(),N'None.') + @crlf
+	             + N' Line #:    ' + Cast(Error_Line() AS VARCHAR(10))
 	PRINT @ERR_MSG
 	SELECT @ERR_MSG
   END TRY 
