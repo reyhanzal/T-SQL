@@ -1,6 +1,6 @@
 CREATE PROCEDURE [dbo].[s_CatchErrorInfo] (
-        @DB_NAME NVARCHAR(100),
-	@LOGTABLE NVARCHAR(50), 
+        @DB_NAME   NVARCHAR(100),
+	@LOGTABLE  NVARCHAR(50), 
 	@COMPONENT NVARCHAR(50), 
 	@NARRATIVE NVARCHAR(1500) = ''
 )
@@ -55,15 +55,14 @@ BEGIN
   SET @LOGTABLE = UPPER(@LOGTABLE)
   SET @LOGTYPE = UPPER(@LOGTYPE)
 	
-  BEGIN TRY		
+  BEGIN TRY
+  	       SET @sql = 'INSERT INTO [' + @DB_NAME + '].dbo.[' + @LOGTABLE + '] '
+               SET @sql = @sql + N' ([DateTime],[TableName],[Component],[LogType],[Narrative],[ErrorMessage])'
+	       SET @sql = @sql + N' VALUES(GetDate(),N''' + @logtable + ''','
+	       SET @sql = @sql + ',N''' + LTRIM(RTRIM(@COMPONENT)) + ''',N''' + LTRIM(RTRIM(@LOGTYPE)) 
+                               + ''',N''' + @NARRATIVE + ''',N''' + @ERR_MSG + ''')'
 		
-		SET @sql = 'INSERT INTO [' + @DB_NAME + '].dbo.[' + @LOGTABLE + '] '
-		SET @sql = @sql + N' ([DateTime],[TableName],[Component],[LogType],[Narrative],[ErrorMessage])'
-		SET @sql = @sql + N' VALUES(GetDate(),N''' + @logtable + ''','
-		SET @sql = @sql + ',N''' + LTRIM(RTRIM(@COMPONENT)) + ''',N''' + LTRIM(RTRIM(@LOGTYPE)) 
-		                + ''',N''' + @NARRATIVE + ''',N''' + @ERR_MSG + ''')'
-		
-		EXEC sp_executesql @sql 
+	       EXEC sp_executesql @sql 
   END TRY
 	
   BEGIN CATCH
