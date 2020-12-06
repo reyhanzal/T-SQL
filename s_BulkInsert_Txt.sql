@@ -34,17 +34,17 @@ SET @bulkinsert = N'BULK INSERT ' + @tblname + N' FROM ' + QUOTENAME(@importfile
 					N' ROWTERMINATOR=' + QUOTENAME(CHAR(10), '''') + N'); SET @rowcount = @@rowcount'
 											
 BEGIN TRY 
-	EXEC sp_executesql 
-		@bulkinsert,
-		N'@rowcount int output', 
-		@rowcount OUTPUT
+     EXEC sp_executesql 
+        @bulkinsert,
+        N'@rowcount int output', 
+        @rowcount OUTPUT
 END TRY 
 
 BEGIN CATCH
-	SELECT @err_code = @@error
-	EXECUTE S_sys_CatchImportErrorInfo @companydb, @me, @bulkinsert
-	SET @err_msg = N'BULK INSERT statement failed.'
-	PRINT @me + @err_msg + ' ' + @bulkinsert + ' ' + Cast(@err_code AS NVARCHAR(10)) + '.' + Error_Message()
+     SELECT @err_code = @@error
+     EXECUTE S_sys_CatchImportErrorInfo @companydb, @me, @bulkinsert
+     SET @err_msg = N'BULK INSERT statement failed.'
+     PRINT @me + @err_msg + ' ' + @bulkinsert + ' ' + Cast(@err_code AS NVARCHAR(10)) + '.' + Error_Message()
 END CATCH
 	
 SET @myinfo = N'Rows inserted ' + Cast(@rowcount AS NVARCHAR(10))
