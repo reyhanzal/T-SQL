@@ -11,7 +11,7 @@ SELECT 'CONSTRAINT ' + name + ' FOREIGN KEY (' + parCol +
   ') REFERENCES ' + refName + '(' + refCol + ')' cmd,
   CASE 
    WHEN RefTableIsFaked = 1 THEN 'CREATE UNIQUE INDEX ' + 
-      tSQL.Private::CreateUniqueObjectName() + ' ON ' + 
+      tSQLs.Private::CreateUniqueObjectName() + ' ON ' + 
       refName + '(' + refCol + ');'
    ELSE '' 
   END STbl
@@ -31,7 +31,7 @@ FROM (
    JOIN sys.columns C ON C.object_id = B.parent_object_id AND C.column_id = B.parent_column_id
    JOIN sys.columns D ON D.object_id = B.referenced_object_id AND D.column_id = B.referenced_column_id
    JOIN sys.tables E ON COALESCE(F.major_id,D.object_id) = E.object_id
-   LEFT JOIN sys.extended_properties F ON F.name = 'tSQL.FakeTable_OrgTableName' AND F.value = OBJECT_NAME(B.referenced_object_id)
+   LEFT JOIN sys.extended_properties F ON F.name = 'tSQLs.FakeTable_OrgTableName' AND F.value = OBJECT_NAME(B.referenced_object_id)
 WHERE A.parent_object_id = OBJECT_ID(@SchemaName + '.' + @ParentTableName)
 AND A.object_id = OBJECT_ID(@SchemaName + '.' + @ForeignKeyName)
 ) Z;
