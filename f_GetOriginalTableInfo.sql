@@ -12,4 +12,4 @@ FROM sys.extended_properties
 WHERE class_desc = 'OBJECT_OR_COLUMN'
 AND major_id = @TableObjectId
 AND minor_id = 0
-AND name = 'tSQL.FakeTable_OrgTableName';
+AND name = 'tSQLs.FakeTable_OrgTableName';
