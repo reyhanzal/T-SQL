@@ -11,7 +11,7 @@ SELECT 'CONSTRAINT ' + name + ' FOREIGN KEY (' + parCol +
   ') REFERENCES ' + refName + '(' + refCol + ')' cmd,
   CASE 
    WHEN RefTableIsFaked = 1 THEN 'CREATE UNIQUE INDEX ' + 
-      tSQLt.Private::CreateUniqueObjectName() + ' ON ' + 
+      tSQL.Private::CreateUniqueObjectName() + ' ON ' + 
       refName + '(' + refCol + ');'
    ELSE '' 
   END STbl
