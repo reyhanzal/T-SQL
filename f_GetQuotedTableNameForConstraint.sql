@@ -1,4 +1,4 @@
-CREATE FUNCTION [tSQL].[GetQuotedTableNameForConstraint] (
+CREATE FUNCTION [tSQLs].[GetQuotedTableNameForConstraint] (
 	@ConstraintObjectId INT
 )
 RETURNS TABLE
