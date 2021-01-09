@@ -1,4 +1,4 @@
-CREATE FUNCTION [tSQL].[ResolveFakeTableNamesForBackwardCompatibility] (
+CREATE FUNCTION [tSQLs].[ResolveFakeTableNamesForBackwardCompatibility] (
 	@TableName NVARCHAR(MAX),
 	@SchemaName NVARCHAR(MAX)
 )
