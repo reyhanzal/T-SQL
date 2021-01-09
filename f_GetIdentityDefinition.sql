@@ -1,4 +1,4 @@
-CREATE FUNCTION [tSQL].[GetIdentityDefinition] (
+CREATE FUNCTION [tSQLs].[GetIdentityDefinition] (
 	@ObjectId INT,
 	@ColumnId INT,
 	@ReturnDetails BIT
