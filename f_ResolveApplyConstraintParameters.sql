@@ -1,4 +1,4 @@
-CREATE FUNCTION [tSQL].[ResolveApplyConstraintParameters] (
+CREATE FUNCTION [tSQLs].[ResolveApplyConstraintParameters] (
 	@A NVARCHAR(MAX),
 	@B NVARCHAR(MAX),
 	@C NVARCHAR(MAX)
