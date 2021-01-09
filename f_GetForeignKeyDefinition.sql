@@ -1,4 +1,4 @@
-CREATE FUNCTION [tSQL].[GetForeignKeyDefinition] (
+CREATE FUNCTION [tSQLs].[GetForeignKeyDefinition] (
     @SchemaName NVARCHAR(MAX),
     @ParentTableName NVARCHAR(MAX),
     @ForeignKeyName NVARCHAR(MAX)
