@@ -1,4 +1,4 @@
-CREATE FUNCTION [tSQL].[GetOriginalTableInfo] (
+CREATE FUNCTION [tSQLs].[GetOriginalTableInfo] (
 	@TableObjectId INT
 )
 RETURNS TABLE
