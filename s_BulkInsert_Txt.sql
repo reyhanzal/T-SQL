@@ -7,7 +7,7 @@ AS
 
 --=================================
 --Author      : M. Reyhan Zalbina
---Description : Bulk Insert Txt
+--Description : Txt Bulk Insert
 --=================================
 
 BEGIN
