@@ -1,5 +1,5 @@
 /*
- * Transpose dataset source from row to column
+ * Transpose script from row to column
  */
 
 SELECT [1] AS 'DB_SOURCE', [2] AS 'DB_DESTINATION', [3] AS 'TABLE_SRC', [4] AS 'TABLE_DST'
