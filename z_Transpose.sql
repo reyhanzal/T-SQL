@@ -12,4 +12,4 @@ PIVOT
   MIN(Item)
   FOR Row_Num IN ([1],[2],[3],[4])
 )
-AS B;
+AS B
