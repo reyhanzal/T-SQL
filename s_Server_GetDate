@@ -1,9 +1,9 @@
 CREATE Procedure [dbo].[Server_GetDate]
 (
-   @Date	DATETIME OUTPUT
+   @Date DATETIME OUTPUT
 )
 AS
-	SET @Date = GETDATE()
-	RETURN
-
-GO
+BEGIN
+   SET @Date = GETDATE()   
+   RETURN
+END
