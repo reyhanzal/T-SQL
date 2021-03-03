@@ -1,4 +1,4 @@
-CREATE FUNCTION [dbo].[round_up] 
+CREATE FUNCTION [dbo].[f_Round_Up] 
 (
    @number NUMERIC(23,8), 
    @digit INT
