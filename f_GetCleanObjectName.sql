@@ -1,5 +1,6 @@
-CREATE FUNCTION [tSQLs].[GetCleanObjectName] (
-  @ObjectName NVARCHAR(MAX)
+CREATE FUNCTION [tSQLs].[GetCleanObjectName]
+(
+    @ObjectName NVARCHAR(MAX)
 )
 RETURNS NVARCHAR(MAX)
 AS
