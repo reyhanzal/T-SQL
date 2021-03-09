@@ -1,4 +1,5 @@
-CREATE FUNCTION [dbo].[f_Format_Amount] (
+CREATE FUNCTION [dbo].[f_Format_Amount]
+(
     @amount NUMERIC(23,8)
 )
 RETURN VARCHAR(23)
