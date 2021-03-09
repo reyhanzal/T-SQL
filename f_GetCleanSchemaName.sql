@@ -1,4 +1,5 @@
-CREATE FUNCTION [tSQLs].[GetCleanSchemaName] (
+CREATE FUNCTION [tSQLs].[GetCleanSchemaName]
+(
     @SchemaName NVARCHAR(MAX), 
     @ObjectName NVARCHAR(MAX)
 )
