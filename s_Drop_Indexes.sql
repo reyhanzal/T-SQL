@@ -6,14 +6,15 @@ CREATE PROCEDURE [dbo].[s_Drop_Indexes]
 AS
 BEGIN
 
-  SET NOCOUNT ON
+  SET NOCOUNT ON;
 
-  CREATE TABLE #CmdTbl (
-	 Id  INT IDENTITY(1,1) PRIMARY KEY CLUSTERED, 
-	 Cmd NVARCHAR(2000)
+  CREATE TABLE #CmdTbl
+  (
+      Id  INT IDENTITY(1,1) PRIMARY KEY CLUSTERED, 
+      Cmd NVARCHAR(2000)
   )
 
-  DECLARE @CurrentCommand NVARCHAR(2000);
+  DECLARE @CurrentCommand NVARCHAR(2000)
 
   INSERT INTO #CmdTbl (Cmd)
   SELECT 'DROP INDEX [' + i.name + '] ON [' + SCHEMA_NAME(t.schema_id) + '].[' + t.name + ']'
@@ -28,7 +29,7 @@ BEGIN
   WHERE NOT EXISTS (SELECT * FROM sys.indexes AS i WHERE i.name = s.name) 
   AND SCHEMA_NAME(t.schema_id) = COALESCE(@SchemaName, SCHEMA_NAME(t.schema_id))
   AND t.name = COALESCE(@TableName, t.name)
-  AND OBJECT_NAME(s.object_id) NOT LIKE 'sys%';
+  AND OBJECT_NAME(s.object_id) NOT LIKE 'sys%'
   DECLARE result_cursor CURSOR FOR
   SELECT Cmd FROM #CmdTbl
 
@@ -36,10 +37,10 @@ BEGIN
   FETCH NEXT FROM result_cursor into @CurrentCommand
   WHILE @@FETCH_STATUS = 0
   BEGIN
-    PRINT @CurrentCommand;
-	EXEC(@CurrentCommand);
+     PRINT @CurrentCommand;
+     EXEC(@CurrentCommand)
 
-  FETCH NEXT FROM result_cursor into @CurrentCommand
+     FETCH NEXT FROM result_cursor into @CurrentCommand
   END
 
   CLOSE result_cursor
