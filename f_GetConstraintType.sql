@@ -1,6 +1,7 @@
-CREATE FUNCTION [tSQLs].[GetConstraintType](
-   @TableObjectId INT, 
-   @ConstraintName NVARCHAR(MAX)
+CREATE FUNCTION [tSQLs].[GetConstraintType]
+(
+    @TableObjectId INT, 
+    @ConstraintName NVARCHAR(MAX)
 )
 RETURNS TABLE
 AS
