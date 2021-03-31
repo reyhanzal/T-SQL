@@ -1,3 +1,7 @@
+/*https://stackoverflow.com/questions/121243/hidden-features-of-sql-server*/
+
 If you want to know the table structure, indexes and constraints:
 
 sp_help 'TableName'
+
+
