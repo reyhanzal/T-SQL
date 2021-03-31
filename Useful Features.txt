@@ -1,0 +1,3 @@
+If you want to know the table structure, indexes and constraints:
+
+sp_help 'TableName'
