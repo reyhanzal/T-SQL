@@ -2,6 +2,8 @@
 
 If you want to know the table structure, indexes and constraints:
 
-sp_help 'TableName'
+* sp_help 'TableName'
+* sp_who is documented and officially supported
+* sp_who2 sp_who2 is undocumented and unsupported, but widely used and return same information as sp_who
 
 
