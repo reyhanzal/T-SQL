@@ -12,11 +12,11 @@ DECLARE @Count        INT
 
 SET @Count = 0
 SET @Index = 1
-SET @InputLength = LEN(@pInput)
+SET @InputLength = LEN(@InputString)
 
 WHILE @Index <= @InputLength
 BEGIN
-    IF SUBSTRING(@Input, @Index, 1) = @SearchChar
+    IF SUBSTRING(@InputString, @Index, 1) = @SearchChar
         SET @Count = @Count + 1
 
     SET @Index = @Index + 1
