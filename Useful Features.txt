@@ -8,6 +8,7 @@ If you want to know the table structure, indexes and constraints:
 * sp_helptext Iif you want the code of a stored procedure, view & UDF
 * sp_tables return a list of all tables and views of database in scope
 * sp_stored_procedures return a list of all stored procedures
+* CREATE INDEX cte_table_name ON #table_name(id);
 
 
 
