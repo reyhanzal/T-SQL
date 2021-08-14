@@ -5,7 +5,6 @@ CREATE FUNCTION dbo.f_DBCreationDate
 RETURNS datetime
 AS
 BEGIN
-  
   DECLARE @crdate datetime
   
   SELECT @crdate = crdate 
@@ -15,5 +14,3 @@ BEGIN
   RETURN ( @crdate )
   
 END
-
-GO
