@@ -4,8 +4,8 @@ CREATE FUNCTION [tSQLs].[FindConstraint]
   ,@ConstraintName NVARCHAR(MAX)
 )
 RETURNS TABLE
-BEGIN
 AS
+BEGIN
 RETURN
   SELECT TOP(1) constraints.object_id AS ConstraintObjectId, type_desc AS ConstraintType
   FROM sys.objects constraints
