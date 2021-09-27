@@ -1,8 +1,0 @@
-CREATE FUNCTION [dbo].[f_CountChar]
-( 
-   @InputDate DATE
-)
-RETURNS DATE
-BEGIN
-  SELECT DATE_TRUNC('YEAR',@InputDate)
-END
