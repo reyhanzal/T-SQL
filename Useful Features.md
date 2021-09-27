@@ -1,5 +1,6 @@
-/* https://stackoverflow.com/questions/121243/hidden-features-of-sql-server */
-/* https://github.com/microsoft/sql-server-samples/blob/master/samples/demos/query-tuning-assistant/qta-demo.zip */
+https://stackoverflow.com/questions/121243/hidden-features-of-sql-server
+https://github.com/microsoft/sql-server-samples/blob/master/samples/demos/query-tuning-assistant/qta-demo.zip
+
 If you want to know the table structure, indexes and constraints:
 
 * sp_help 'TableName'
