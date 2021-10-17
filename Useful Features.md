@@ -1,5 +1,7 @@
 https://stackoverflow.com/questions/121243/hidden-features-of-sql-server
+
 https://github.com/microsoft/sql-server-samples/blob/master/samples/demos/query-tuning-assistant/qta-demo.zip
+
 https://github.com/Thomas-S-B/SQLServerTools
 
 # If you want to know the table structure, indexes and constraints:
