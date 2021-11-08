@@ -1,12 +1,13 @@
-CREATE FUNCTION [tSQLs].[GetDataTypeOrComputedColumnDefinition] (
-	@UserTypeId INT,
-	@MaxLength INT,
-	@Precision INT,
-	@Scale INT,
-	@CollationName NVARCHAR(MAX),
-	@ObjectId INT,
-	@ColumnId INT,
-	@ReturnDetails BIT
+CREATE FUNCTION [tSQLs].[GetDataTypeOrComputedColumnDefinition]
+(
+     @UserTypeId      INT
+    ,@MaxLength       INT
+    ,@Precision       INT
+    ,@Scale           INT
+    ,@CollationName   NVARCHAR(MAX)
+    ,@ObjectId        INT
+    ,@ColumnId        INT
+    ,@ReturnDetails   BIT
 )
 RETURNS TABLE
 AS
