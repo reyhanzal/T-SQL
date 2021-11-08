@@ -1,7 +1,8 @@
-CREATE FUNCTION [tSQLs].[GetDefaultConstraintDefinition] (
-	@ObjectId INT,
-	@ColumnId INT,
-	@ReturnDetails BIT
+CREATE FUNCTION [tSQLs].[GetDefaultConstraintDefinition]
+(
+     @ObjectId        INT
+    ,@ColumnId        INT
+    ,@ReturnDetails   BIT
 )
 RETURNS TABLE
 AS
