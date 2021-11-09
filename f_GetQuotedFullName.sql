@@ -1,5 +1,6 @@
-CREATE FUNCTION [tSQLs].[GetQuotedFullName] (
-      @Objectid INT
+CREATE FUNCTION [tSQLs].[GetQuotedFullName]
+(
+     @Objectid INT
 )
 RETURNS NVARCHAR(517)
 AS
