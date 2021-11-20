@@ -4,8 +4,8 @@ CREATE FUNCTION [tSQLs].[GetQuotedTableNameForConstraint]
 )
 RETURNS TABLE
 AS
-RETURN
 BEGIN
+RETURN
   SELECT QUOTENAME(SCHEMA_NAME(C.schema_id)) + '.' + QUOTENAME(OBJECT_NAME(C.object_id)) QuotedTableName,
     SCHEMA_NAME(C.schema_id) SchemaName,
     OBJECT_NAME(C.object_id) TableName,
