@@ -16,22 +16,20 @@ SET @Index = 1
 
 WHILE @Index <= LEN(@InputString)
 BEGIN
-    SET @Char     = SUBSTRING(@InputString, @Index, 1)
-    SET @PrevChar = CASE WHEN @Index = 1 THEN ' '
-                         ELSE SUBSTRING(@InputString, @Index - 1, 1)
-                    END
+  SET @Char     = SUBSTRING(@InputString, @Index, 1)
+  SET @PrevChar = CASE WHEN @Index = 1 THEN ' '
+                  ELSE SUBSTRING(@InputString, @Index - 1, 1)
+                  END
 
-    IF @PrevChar IN (' ', ';', ':', '!', '?', ',', '.', '_', '-', '/', '&', '''', '(')
-    BEGIN
-        IF @PrevChar != '''' OR UPPER(@Char) != 'S'
-            SET @OutputString = STUFF(@OutputString, @Index, 1, UPPER(@Char))
-    END
+  IF @PrevChar IN (' ', ';', ':', '!', '?', ',', '.', '_', '-', '/', '&', '''', '(')
+  BEGIN
+    IF @PrevChar != '''' OR UPPER(@Char) != 'S'
+    SET @OutputString = STUFF(@OutputString, @Index, 1, UPPER(@Char))
+  END
 
-    SET @Index = @Index + 1
+  SET @Index = @Index + 1
 END
 
 RETURN @OutputString
 
 END
-
-GO
