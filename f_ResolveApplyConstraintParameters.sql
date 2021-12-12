@@ -6,17 +6,14 @@ CREATE FUNCTION [tSQLs].[ResolveApplyConstraintParameters] (
 RETURNS TABLE
 AS 
 RETURN
-
-SELECT ConstraintObjectId, ConstraintType
-FROM tSQLs.FindConstraint(OBJECT_ID(@A), @B)
-WHERE @C IS NULL
-
-UNION ALL
-
-SELECT *
-FROM tSQLs.FindConstraint(OBJECT_ID(@A + '.' + @B), @C)
-
-UNION ALL
-
-SELECT *
-FROM tSQLs.FindConstraint(OBJECT_ID(@C + '.' + @A), @B);
+BEGIN
+  SELECT ConstraintObjectId, ConstraintType
+  FROM tSQLs.FindConstraint(OBJECT_ID(@A), @B)
+  WHERE @C IS NULL
+  UNION ALL
+  SELECT *
+  FROM tSQLs.FindConstraint(OBJECT_ID(@A + '.' + @B), @C)
+  UNION ALL
+  SELECT *
+  FROM tSQLs.FindConstraint(OBJECT_ID(@C + '.' + @A), @B)
+END
