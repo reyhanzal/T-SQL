@@ -1,14 +1,16 @@
 CREATE FUNCTION [dbo].[f_Round_Up] 
 (
-   @number NUMERIC(23,8), 
-   @digit INT
+     @number NUMERIC(23,8) 
+    ,@digit  INT
 ) 
 RETURNS NUMERIC(23,8)
 AS
 BEGIN
-	DECLARE @roundnumber NUMERIC(23,8), @roundupnumber NUMERIC(23,8)
 
-	SET @roundnumber = POWER(10, @digit)
-	SET @roundupnumber = CEILING(@number * @roundnumber) / @roundnumber
-	RETURN @roundupnumber
+  DECLARE @roundnumber NUMERIC(23,8), @roundupnumber NUMERIC(23,8)
+
+  SET @roundnumber = POWER(10, @digit)
+  SET @roundupnumber = CEILING(@number * @roundnumber) / @roundnumber
+  RETURN @roundupnumber
+
 END
