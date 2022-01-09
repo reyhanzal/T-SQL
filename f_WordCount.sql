@@ -5,17 +5,17 @@ CREATE FUNCTION [dbo].[f_WordCount]
 RETURNS INT
 AS
 BEGIN
+  
+  DECLARE @Index       INT
+  DECLARE @Char        CHAR(1)
+  DECLARE @PrevChar    CHAR(1)
+  DECLARE @WordCount   INT
 
-DECLARE @Index       INT
-DECLARE @Char        CHAR(1)
-DECLARE @PrevChar    CHAR(1)
-DECLARE @WordCount   INT
+  SET @Index = 1
+  SET @WordCount = 0
 
-SET @Index = 1
-SET @WordCount = 0
-
-WHILE @Index <= LEN(@InputString)
-BEGIN
+  WHILE @Index <= LEN(@InputString)
+  BEGIN
     SET @Char     = SUBSTRING(@InputString, @Index, 1)
     SET @PrevChar = CASE WHEN @Index = 1 THEN ' '
                          ELSE SUBSTRING(@InputString, @Index - 1, 1)
@@ -25,10 +25,8 @@ BEGIN
         SET @WordCount = @WordCount + 1
 
     SET @Index = @Index + 1
+  END
+
+  RETURN @WordCount
+
 END
-
-RETURN @WordCount
-
-END
-
-GO
