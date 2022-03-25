@@ -6,7 +6,7 @@ CREATE PROCEDURE [dbo].[s_Drop_Indexes]
 AS
 BEGIN
 
-  SET NOCOUNT ON;
+SET NOCOUNT ON;
 
   CREATE TABLE #CmdTbl
   (
@@ -37,10 +37,10 @@ BEGIN
   FETCH NEXT FROM result_cursor into @CurrentCommand
   WHILE @@FETCH_STATUS = 0
   BEGIN
-     PRINT @CurrentCommand;
-     EXEC(@CurrentCommand)
+    PRINT @CurrentCommand;
+    EXEC(@CurrentCommand)
 
-     FETCH NEXT FROM result_cursor into @CurrentCommand
+    FETCH NEXT FROM result_cursor into @CurrentCommand
   END
 
   CLOSE result_cursor
